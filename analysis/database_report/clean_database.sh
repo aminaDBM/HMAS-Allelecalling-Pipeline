@@ -1,0 +1,1 @@
+../../src/clean_database.bh

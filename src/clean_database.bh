@@ -1,0 +1,14 @@
+#!/bin/bash
+for i in `ls *.database_report`;
+	do
+	echo $i
+	list_for_removing=`python ../../src/build_database_library.py rem_list $i`;
+	echo $list_for_removing
+	for line in `cat $list_for_removing`;
+		do
+                echo rm ../$line 
+		rm ../$line
+		done
+	rm $list_for_removing
+	rm $i
+	done

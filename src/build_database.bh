@@ -1,0 +1,150 @@
+
+# build_database.bh - performs the quality check and preprocessing of the database 
+#!/bin/bash
+
+rm -r log* qsub_logs 2> /dev/null
+source config
+if [[ -z $fastq ]]; then fastq='-s 100 -l 50 -c 40'; fi
+if [[ -z $bwa ]]; then bwa=''; fi
+if [[ -z $mpileup ]]; then mpileup=''; fi
+if [[ -z $flanks ]]; then flanks='NO'; fi
+if [[ -z $ploidy_build ]]; then ploidy_build=1; fi
+
+echo "DATABASE UPDATE CHECK"
+
+#removing files in case something was removed from the original database
+for i in `find . -name "*.fa_ex"`;
+	do
+	file=${i/.\//}
+	dir=$(dirname $file)
+	file_fa=$path${file/fa_ex/fa}
+	core_file=${file/.fa_ex/}
+	if [ ! -e $file_fa ]
+		then
+		rm all.fasta* 2> /dev/null;
+		rm $dir.fasta* 2> /dev/null;
+                rm $dir.bed 2> /dev/null;
+		rm $dir.control 2> /dev/null;
+		rm $dir.*_matrix 2> /dev/null;
+		rm $file $core_file"_1.fq" 2> /dev/null;
+		rm $core_file"_2.fq" 2> /dev/null;
+		rm $dir/*.vcf* 2> /dev/null;
+		rm $dir/*.bam* 2> /dev/null;
+		rm $dir/*.consensus 2> /dev/null;
+		rm database_report/$dir.database_report 2> /dev/null;
+                rm database_report/$dir.dist_distribution 2> /dev/null;
+		rm database_report/$dir.lenghts 2> /dev/null;
+	fi
+	done
+
+#removing files in case that the original database was changed
+for i in `find . -name "dir.done"`;
+	do
+	dir=$(dirname ${i/.\//})
+	number=`ls $dir/*| wc -l`
+	if [ $number = 1 ]
+    		then
+    		rm -r $dir;
+		rm database_report/$dir.* 2> /dev/null;
+	fi
+	done
+
+#removing files in case that existant distance matrix is incomplete
+for i in `find . -name "*.dist_matrix"`;
+        do
+        file=${i/.\//}
+        dir=`echo $file | cut -d'.' -f1`
+	echo "checking" $dir
+        or_dir=$path$dir
+	or_number=`ls $or_dir/*| wc -l`
+	mat_number=`wc -l $file | cut -d ' ' -f1`
+        if [ $or_number -ne $mat_number ]
+                then
+                rm $dir.fasta* 2> /dev/null;
+                rm $dir.bed 2> /dev/null;
+                rm $dir.control 2> /dev/null;
+                rm $dir.*_matrix 2> /dev/null;
+                rm $dir/*.vcf* 2> /dev/null;
+                rm $dir/*.bam* 2> /dev/null;
+                rm $dir/*.consensus 2> /dev/null;
+                rm database_report/$dir.database_report 2> /dev/null;
+                rm database_report/$dir.dist_distribution 2> /dev/null;
+                rm database_report/$dir.lenghts 2> /dev/null;
+        fi
+	done
+
+
+#first step of database creation -distance matrix building and searching for the gene reference.
+echo `date`
+echo "DATABASE QC CHECK"
+
+nohup make -f build.mk first_step  -j 99 PTH=$path FLANKS=$flanks >> log.txt 2>> log_err.txt
+echo `date` "Database quality is checked. Results for each gene can be found in 'database_report' folder." 
+echo "The centroid reference file has been generated for each gene" 
+#answer='yes' 
+read -p "Do you want to continue (yes/no) " answer
+
+if [ `echo $answer | tr [:upper:] [:lower:]` = `echo "YES" | tr [:upper:] [:lower:]` ]
+	then
+	echo `date`
+	echo "DATABASE PREPROCESSING"
+	#creating vcf-files and checking their quality 
+       rm -r log* qsub_logs 2> /dev/null
+	nohup make -f build.mk second_step -j 99 PTH=$path FASTQ="$fastq" BWA="$bwa" MPILEUP="$mpileup" PLOIDY="$ploidy_build" >> log.txt 2>> log_err.txt ;
+	echo `date`
+	#checing that concensus generation went well
+	for i in `find . -name "*.fa_ex"`;
+        do
+        file=${i/.\//}
+        dir=$(dirname $file)
+        consensus=${file/fa_ex/consensus}
+        if [ ! -e $consensus ]
+                then
+		echo 'Error occured before consensus files were generated. Please check your log_err.txt file and start again'
+		exit 1
+        fi
+        done
+	echo "Vcf-files are sucesfully generated"
+
+	#creating vcf-matrixes
+	rm -r additional_check 2> /dev/null
+	nohup make -f build.mk third_step -j 99 PTH=$path FLANKS=$flanks >> log.txt 2>> log_err.txt
+	#checking that vcf_matrix files generation went well
+	vcf_matrix_check=0
+	for i in `find . -name "dir.done"`;
+        	do
+	        dir=$(dirname ${i/.\//})
+        	file=${dir}.vcf_matrix
+		control=${dir}.control
+        	if [ ! -e $file ]
+                	then
+                	echo 'Error occured before vcf-matrixes were generated. Please check your err_log.txt file and start again'
+                	vcf_matrix_check=1
+
+                	else
+                	or_dir=$path$dir
+                	or_number=`ls $or_dir/*| wc -l`
+                	mat_number=`wc -l $file | cut -d ' ' -f1`
+			control_number=`wc -l $control | cut -d ' ' -f1`
+			check=$(($mat_number+$control_number-1))
+                	if [ $or_number -ne $check ]
+                        	then
+                        	vcf_matrix_check=1
+                        	#rm $file
+                        	echo 'Error occured. Vcf matrix file is not properly calculated and will be removed. Please check your err_log.txt file and start again'
+                	fi
+        	fi
+        	done
+	if [ $vcf_matrix_check = 1 ]
+        	then
+        	exit 1
+	fi
+
+	echo "Database is preprocessed. The variants for the following sequences were not properly called:"
+	cat additional_check/outliers
+	echo "These sequences will be removed from the vcf-dependent part of the database and will be checked using actual sequence, not the obtained variants"
+	echo `date`
+	#cleaning the dirrectories. For some reason I'm getting everything cleaned, but an error message nevertheless
+	nohup make -f build.mk clean -j 99 PTH=$path >> log.txt 2>> log_err.txt
+fi
+
