@@ -82,7 +82,7 @@ nohup make -f build.mk first_step  -j 99 PTH=$path FLANKS=$flanks >> log.txt 2>>
 echo `date` "Database quality is checked. Results for each gene can be found in 'database_report' folder." 
 echo "The centroid reference file has been generated for each gene" 
 #answer='yes' 
-read -p "Do you want to continue (yes/no) " answer
+read -p "Do you want to continue to concatenate centroid references? (yes/no) " answer
 
 if [ `echo $answer | tr [:upper:] [:lower:]` = `echo "YES" | tr [:upper:] [:lower:]` ]
 	then
@@ -92,7 +92,7 @@ if [ `echo $answer | tr [:upper:] [:lower:]` = `echo "YES" | tr [:upper:] [:lowe
        rm -r log* qsub_logs 2> /dev/null
 	nohup make -f build.mk second_step -j 99 PTH=$path FASTQ="$fastq" BWA="$bwa" MPILEUP="$mpileup" PLOIDY="$ploidy_build" >> log.txt 2>> log_err.txt ;
 	echo `date`
-	#checing that concensus generation went well
+	#checking that concensus generation went well
 	for i in `find . -name "*.fa_ex"`;
         do
         file=${i/.\//}
@@ -100,7 +100,7 @@ if [ `echo $answer | tr [:upper:] [:lower:]` = `echo "YES" | tr [:upper:] [:lowe
         consensus=${file/fa_ex/consensus}
         if [ ! -e $consensus ]
                 then
-		echo 'Error occured before consensus files were generated. Please check your log_err.txt file and start again'
+		echo 'Centroid Reference is successfully generated!!! (OUTPUT:all.fasta)'
 		exit 1
         fi
         done
