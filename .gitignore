@@ -1,9 +1,9 @@
 
 #contents of data folder containing test data
-data/
+/data/
 
 #contents of database_report
-analysis/database_report/*.dist_distr
-analysis/database_report/*.lengths
+/analysis/database_report/*.dist_distr
+/analysis/database_report/*.lengths
 
 
