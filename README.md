@@ -15,24 +15,35 @@ BacTag - pipeline for fast and accurate genes and alleles typing (https://git.lu
 Creating a conda environment using `.yml` file
 
 * Create the environment from the allelecalling.yml file:
-      `conda env create -f allelecalling.yml`
+
+      conda env create -f allelecalling.yml
+      
 * Activate the new environment: 
-      `conda activate allelecalling`
+      
+      conda activate allelecalling
+      
 * Verify that the new environment was installed correctly:
-      `conda env list`
+      
+      conda env list
 
 ## Installation
 From source:
 * Centroid_Reference Generation 
-      `git clone https://github.com/aminaDBM/Centroid_Reference.git`
+
+      git clone https://github.com/aminaDBM/Centroid_Reference.git
+      
 * Fastools
-     * `git clone https://git.lumc.nl/j.f.j.laros/fastools.git`
-     * `cd fastools`
-     * `pip install .`
+
+      git clone https://git.lumc.nl/j.f.j.laros/fastools.git
+      cd fastools
+      pip install .
+      
 * Sim-reads
-     * `git clone https://git.lumc.nl/j.f.j.laros/sim-reads.git`
-     * `cd sim-reads`
-     * `pip install .`
+
+      git clone https://git.lumc.nl/j.f.j.laros/sim-reads.git
+      cd sim-reads
+      pip install .
+
 
 ## Database Setup
 #### Database organization requirements
