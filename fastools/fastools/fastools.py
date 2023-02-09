@@ -2,7 +2,7 @@ import argparse
 import csv
 import itertools
 import re
-import urllib2
+import urllib.request
 import random
 import sys
 
@@ -11,7 +11,6 @@ from collections import defaultdict
 import Levenshtein
 
 from Bio import Seq, SeqIO, Entrez, pairwise2, Restriction
-from Bio.Alphabet import IUPAC
 from Bio.SeqRecord import SeqRecord
 
 from .peeker import Peeker
