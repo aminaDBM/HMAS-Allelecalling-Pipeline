@@ -134,8 +134,8 @@ def fq2fa(input_handle, output_handle):
     try:
         for record in SeqIO.parse(input_handle, 'fastq'):
             SeqIO.write(record, output_handle, 'fasta')
-    except ValueError, error:
-        print 'Error: {}'.format(error)
+    except ValueError:
+        print ('Error: {}'.format(error))
         emptyRecord = SeqRecord(Seq.Seq(''), '', '', '')
         SeqIO.write(emptyRecord, output_handle, 'fasta')
 
@@ -189,12 +189,12 @@ def maln(input_handle):
 
     data = {x.name: str(x.seq) for x in SeqIO.parse(input_handle, 'fasta')}
     for j in data:
-        print j,
+        print (j),
     print
     for i in data:
-        print i,
+        print (i),
         for j in data:
-            print Levenshtein.hamming(data[i], data[j]),
+            print (Levenshtein.hamming(data[i], data[j])),
         print
 
     return distances
@@ -895,47 +895,47 @@ def main():
 
     try:
         args = parser.parse_args()
-    except IOError, error:
+    except IOError:
         parser.error(error)
 
     if args.subcommand == 'aln':
         for i in aln(args.input_handles):
-            print '{} {} {}'.format(*i)
+            print ('{} {} {}'.format(*i))
 
     elif args.subcommand == 'len':
-        print ' '.join(map(lambda x: str(x), length(args.input_handle)))
+        print (' '.join(map(lambda x: str(x), length(args.input_handle))))
 
     elif args.subcommand == 'list_enzymes':
-        print '\n'.join(list_enzymes())
+        print ('\n'.join(list_enzymes()))
 
     elif args.subcommand == 'restrict':
-        print ' '.join(
-            map(lambda x: str(x), restrict(args.input_handle, args.enzymes)))
+        print (' '.join(
+            map(lambda x: str(x), restrict(args.input_handle, args.enzymes))))
 
     elif args.subcommand == 'collapse':
-        print 'Collapsed {} stretches longer than {}.'.format(
+        print ('Collapsed {} stretches longer than {}.'.format(
             collapse_fasta(
                 args.input_handle, args.output_handle, args.max_stretch),
-            args.max_stretch)
+            args.max_stretch))
 
     elif args.subcommand == 's2i':
-        print 'converted {} records'.format(s2i(
-            args.input_handle, args.output_handle))
+        print ('converted {} records'.format(s2i(
+            args.input_handle, args.output_handle)))
 
     elif args.subcommand == 'tagcount':
-        print count_tags(args.input_handle, args.sequence, args.mismatches)
+        print (count_tags(args.input_handle, args.sequence, args.mismatches))
 
     elif args.subcommand == 'cat':
-        print '\n'.join(cat(args.input_handle))
+        print ('\n'.join(cat(args.input_handle)))
 
     elif args.subcommand == 'descr':
-        print '\n'.join(descr(args.input_handle))
+        print ('\n'.join(descr(args.input_handle)))
 
     else:
         try:
             args.func(**{k: v for k, v in vars(args).items()
                 if k not in ('func', 'subcommand')})
-        except ValueError, error:
+        except ValueError:
             parser.error(error)
 
 
