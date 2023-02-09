@@ -2,7 +2,11 @@
 #path to the original database, where alleles are grouped per genes. NO " ", "/", "-" signs should be in the gene names
 path='/scicomp/home-pure/spu0/Centroid_Reference/data/test_data/' 
 
-#name of the sample. The analysis directory should contain <name>_1.fq and <name>_2.fq files with sequencing reads
-sample='test'
+
 ###########################################################################################################################
+
+#Non-mandatory
+
+#file with flanking sequences
+#flanks='flanks' 
 
