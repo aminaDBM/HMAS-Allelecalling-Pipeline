@@ -74,13 +74,13 @@ dependencies:
   - xz=5.2.5=h516909a_1
   - zlib=1.2.11=h166bdaf_1014
   - pip:
-    - biopython==1.79
+    - biopython==1.80
     - dict-trie==1.0.1
     - fastools==0.14.1
     - jit-open==1.0.2
     - numpy==1.21.6
     - piletools==0.21.2
     - sim-reads==0.0.4
-    - suds==1.1.1
+    - suds==1.1.2
     - wiggelen==0.4.1
 prefix: /scicomp/home-pure/spu0/yes/envs/allelecalling

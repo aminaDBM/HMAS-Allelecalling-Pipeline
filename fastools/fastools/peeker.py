@@ -1,7 +1,7 @@
 """
 http://stackoverflow.com/questions/14283025/python-3-reading-bytes-from-stdin-pipe-with-readahead
 """
-import cStringIO
+from io import StringIO
 import os
 
 
