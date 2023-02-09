@@ -16,23 +16,7 @@ From source:
 * Centroid_Reference Generation 
 
       git clone https://github.com/aminaDBM/Centroid_Reference.git
-      
-* Fastools
 
-      cd fastools
-      pip install .
-
-* Piletools
-
-      pip install piletools
-      
-* Sim-reads
-
-      cd sim-reads
-      pip install .
-      
-      
-## Preparations
 Creating a conda environment using `.yml` file
 
 * Create the environment from the allelecalling.yml file:
@@ -45,7 +29,24 @@ Creating a conda environment using `.yml` file
       
 * Verify that the new environment was installed correctly:
       
-      conda env list
+      conda env list      
+      
+      
+## Preparations
+
+* Fastools
+
+      cd fastools
+      pip install .
+      
+* Sim-reads
+
+      cd sim-reads
+      pip install .
+
+* Piletools
+
+      pip install piletools
 
 
 ## Database Setup
