@@ -46,13 +46,13 @@ From source:
   name.
 *  Gene and allele names should consist only of letters and numbers.
 #### Example
-You have a database (`DATABASE1`), that includes allele sequences of 2 genes
+You have a database (`MLST`), that includes allele sequences of 2 genes
 (`GENE1` and `GENE2`), 3 alleles per gene. Thus you have 6 sequences in your
 database in total.
 
 ![Screenshot (21)](https://user-images.githubusercontent.com/93733968/217869081-bb510c10-7b69-4d37-ad5a-bb2af475330d.png)
 
-The example of correctly organised database (MLST) is already placed to the
+The example of correctly organised database (test_data) is already placed to the
 `data` folder.
 
 ## Configuration file
@@ -71,7 +71,7 @@ optional fields.
 Before starting the calculations make sure that you have:
 
 1. Raw database In the [proper format](#database-setup) stored in
-  the `data` folder.
+  the `test_data` folder.
 2. [Config file](#configuration-file) with all variables
   provided.
 
