@@ -9,7 +9,6 @@ import sys
 from collections import defaultdict
 
 import Levenshtein
-
 from Bio import Seq, SeqIO, Entrez, pairwise2, Restriction
 from Bio.SeqRecord import SeqRecord
 
