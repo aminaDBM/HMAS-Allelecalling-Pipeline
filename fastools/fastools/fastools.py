@@ -132,13 +132,9 @@ def fq2fa(input_handle, output_handle):
     """
     try:
         for record in SeqIO.parse(input_handle, 'fastq'):
-            SeqIO.write(record, output_handle, 'fasta')
-    except ValueError:
-<<<<<<< HEAD
-        print ('Error: {}').format(error)
-=======
+            SeqIO.write(record, output_handle, 'fasta')  
+  except ValueError:
         print ('Error: {}'.format(error))
->>>>>>> 6f231e2994cc8143b079c7d05d7d339408d06dd0
         emptyRecord = SeqRecord(Seq.Seq(''), '', '', '')
         SeqIO.write(emptyRecord, output_handle, 'fasta')
 
