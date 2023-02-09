@@ -66,7 +66,7 @@ database in total.
 The example of correctly organised database (test_data) is already placed to the
 `data` folder.
 
-## Configuration file
+### Configuration file
 
 It should be placed to the `analysis` directory. There are required and
 optional fields.
@@ -78,9 +78,7 @@ optional fields.
   sequences of length 50 will be used as flanks from both sides.
 
 ## Centroid Reference Generation
-
 Before starting the calculations make sure that you have:
-
 1. Raw database In the [proper format](#database-setup) stored in
   the `test_data` folder.
 2. [Config file](#configuration-file) with all variables
