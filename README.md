@@ -19,7 +19,6 @@ From source:
       
 * Fastools
 
-      git clone https://git.lumc.nl/j.f.j.laros/fastools.git
       cd fastools
       pip install .
 
@@ -29,7 +28,6 @@ From source:
       
 * Sim-reads
 
-      git clone https://git.lumc.nl/j.f.j.laros/sim-reads.git
       cd sim-reads
       pip install .
       
