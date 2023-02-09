@@ -8,7 +8,7 @@ BacTag - pipeline for fast and accurate genes and alleles typing (https://git.lu
 * [Preparations](#preparations)
 * [Installation](#installation)
 * [Database Setup](#databasesetup)
-* [Centroid Reference Generation](#centroid reference generation)
+* [Centroid Reference Generation](#centroidreferencegeneration)
 
 
 ## Preparations
