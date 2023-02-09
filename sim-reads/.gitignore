@@ -1,0 +1,4 @@
+build/
+dist/
+sim_reads.egg-info/
+sim_reads/*.pyc
