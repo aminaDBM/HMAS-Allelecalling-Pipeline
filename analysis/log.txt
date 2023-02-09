@@ -1,4 +1,4 @@
-cat GYRB.fasta FUMC.fasta ADK.fasta ICD.fasta PURA.fasta RECA.fasta MDH.fasta > all.fasta
+bwa index all.fasta
 make_fastq local -s 100 -l 50 -c 40 GYRB/GYRB-5 GYRB/GYRB-5.fa_ex && sleep 10
 make_fastq local -s 100 -l 50 -c 40 GYRB/GYRB-10 GYRB/GYRB-10.fa_ex && sleep 10
 make_fastq local -s 100 -l 50 -c 40 GYRB/GYRB-7 GYRB/GYRB-7.fa_ex && sleep 10
