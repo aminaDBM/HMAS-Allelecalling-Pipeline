@@ -26,13 +26,13 @@ From source:
 * Centroid_Reference Generation 
       `git clone https://github.com/aminaDBM/Centroid_Reference.git`
 * Fastools
-      `git clone https://git.lumc.nl/j.f.j.laros/fastools.git`
-      `cd fastools`
-      `pip install .`
+     * `git clone https://git.lumc.nl/j.f.j.laros/fastools.git`
+     * `cd fastools`
+     * `pip install .`
 * Sim-reads
-      `git clone https://git.lumc.nl/j.f.j.laros/sim-reads.git`
-      `cd sim-reads`
-      `pip install .`
+     * `git clone https://git.lumc.nl/j.f.j.laros/sim-reads.git`
+     * `cd sim-reads`
+     * `pip install .`
 
 ## Database Setup
 #### Database organization requirements
