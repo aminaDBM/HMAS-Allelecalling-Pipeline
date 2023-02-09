@@ -1,8 +1,20 @@
 
-#contents of data folder containing test data
+#contents of /data folder containing test data
 /data/
 
-#contents of database_report
+
+#contents of /analysis/ folder
+*.bed
+*.dist_matrix
+*.fasta
+*.fasta.amb
+*.fasta.ann
+*.fasta.bwt
+*.fasta.pac
+*.fasta.sa
+log*
+
+#contents of /analysis/database_report
 /analysis/database_report/*.dist_distr
 /analysis/database_report/*.lengths
 
