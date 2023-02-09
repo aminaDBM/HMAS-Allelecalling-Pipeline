@@ -70,8 +70,10 @@ The example of correctly organised database (test_data) is already placed to the
 
 It should be placed to the `analysis` directory. There are required and
 optional fields.
+
 **Required variables:**
 * `path` - path to the raw database.
+
 **Optional variables:**
 * `flanks` - file with flanking sequences. If nothing is specified, poli-N
   sequences of length 50 will be used as flanks from both sides.
