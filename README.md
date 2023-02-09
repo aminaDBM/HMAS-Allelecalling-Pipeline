@@ -5,26 +5,11 @@ This code has been accredited to:
 
 BacTag - pipeline for fast and accurate genes and alleles typing (https://git.lumc.nl/l.khachatryan/BacTag.git)
 
-* [Preparations](#preparations)
 * [Installation](#installation)
+* [Preparations](#preparations)
 * [Database Setup](#databasesetup)
 * [Centroid Reference Generation](#centroidreferencegeneration)
 
-
-## Preparations
-Creating a conda environment using `.yml` file
-
-* Create the environment from the allelecalling.yml file:
-
-      conda env create -f allelecalling.yml
-      
-* Activate the new environment: 
-      
-      conda activate allelecalling
-      
-* Verify that the new environment was installed correctly:
-      
-      conda env list
 
 ## Installation
 From source:
@@ -47,6 +32,22 @@ From source:
       git clone https://git.lumc.nl/j.f.j.laros/sim-reads.git
       cd sim-reads
       pip install .
+      
+      
+## Preparations
+Creating a conda environment using `.yml` file
+
+* Create the environment from the allelecalling.yml file:
+
+      conda env create -f allelecalling.yml
+      
+* Activate the new environment: 
+      
+      conda activate allelecalling
+      
+* Verify that the new environment was installed correctly:
+      
+      conda env list
 
 
 ## Database Setup
