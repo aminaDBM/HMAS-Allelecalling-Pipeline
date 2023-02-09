@@ -37,6 +37,10 @@ From source:
       git clone https://git.lumc.nl/j.f.j.laros/fastools.git
       cd fastools
       pip install .
+
+* Piletools
+
+      pip install piletools
       
 * Sim-reads
 
