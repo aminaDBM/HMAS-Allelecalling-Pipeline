@@ -6,6 +6,4 @@
 /analysis/database_report/*.dist_distr
 /analysis/database_report/*.lengths
 
-#fastools and sim-reads repo
-/fastools/
-/sim-reads/
+
