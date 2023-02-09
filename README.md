@@ -46,7 +46,7 @@ From source:
 
 
 ## Database Setup
-#### Database organization requirements
+Database organization requirements:
 *  The database should be placed in `data` folder.
 *  It should consist of allele sequences in
   [FASTA](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=BlastHel)
@@ -56,7 +56,7 @@ From source:
 *  Alleles of the same gene should be placed together to the folder with gene
   name.
 *  Gene and allele names should consist only of letters and numbers.
-#### Example
+Example:
 You have a database (`MLST`), that includes allele sequences of 2 genes
 (`GENE1` and `GENE2`), 3 alleles per gene. Thus you have 6 sequences in your
 database in total.
@@ -66,14 +66,14 @@ database in total.
 The example of correctly organised database (test_data) is already placed to the
 `data` folder.
 
-### Configuration file
+#### Configuration file
 
 It should be placed to the `analysis` directory. There are required and
 optional fields.
 
-#### Required variables
+Required variables:
 * `path` - path to the raw database.
-#### Optional variables
+Optional variables:
 * `flanks` - file with flanking sequences. If nothing is specified, poli-N
   sequences of length 50 will be used as flanks from both sides.
 
@@ -92,7 +92,7 @@ database processing, type:
 
 This will launch the 3 step procedure.
 
-#### Step 1
+Step 1
 First, the pipeline checks whether the current processed database (if there
 is one in this folder) corresponds to the one that user want to process.
 Sequences in the processed database that are not present in the raw database
@@ -101,7 +101,7 @@ sequences in the raw database, that are not present in the processed
 database, the processing will be redone for the gene containing new
 sequence.
 
-#### Step 2
+Step 2
 In the second step, each sequence from the raw database will be merged with
 flanking sequences. Flanking sequences can be provided by the user (see
 [Flanking regions](#flanking-regions)) or can be the default
@@ -135,6 +135,6 @@ sequences belonging to the same gene can be automatically deleted using command:
 There might be some additional files (for example, each `GENE.fasta` file is accompanied by
 the files, obtained after its indexing).
 
-#### Step 3
+Step 3
 If you decided to continue the calculations, then during the third step all
 representative sequences will be stored in one `all.fasta` file.
