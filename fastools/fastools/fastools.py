@@ -5,7 +5,7 @@ import re
 import urllib.request
 import random
 import sys
-from __future__ import print_function
+
 
 from collections import defaultdict
 
@@ -133,7 +133,7 @@ def fq2fa(input_handle, output_handle):
     try:
         for record in SeqIO.parse(input_handle, 'fastq'):
             SeqIO.write(record, output_handle, 'fasta')  
-  except ValueError:
+    except ValueError:
         print ('Error: {}'.format(error))
         emptyRecord = SeqRecord(Seq.Seq(''), '', '', '')
         SeqIO.write(emptyRecord, output_handle, 'fasta')
