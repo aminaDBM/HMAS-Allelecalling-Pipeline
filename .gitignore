@@ -4,15 +4,15 @@
 
 
 #contents of /analysis/ folder
-*.bed
-*.dist_matrix
-*.fasta
-*.fasta.amb
-*.fasta.ann
-*.fasta.bwt
-*.fasta.pac
-*.fasta.sa
-log*
+/analysis/*.bed
+/analysis/*.dist_matrix
+/analysis/*.fasta
+/analysis/*.fasta.amb
+/analysis/*.fasta.ann
+/analysis/*.fasta.bwt
+/analysis/*.fasta.pac
+/analysis/*.fasta.sa
+/analysis/log*
 /analysis/ADK/
 /analysis/FUMC/
 /analysis/GYRB/
