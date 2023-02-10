@@ -20,7 +20,7 @@ log*
 /analysis/MDH/
 /analysis/PURA/
 /analysis/RECA/
-
+/analysis/OG*
 
 #contents of /analysis/database_report
 /analysis/database_report/*.dist_distr
