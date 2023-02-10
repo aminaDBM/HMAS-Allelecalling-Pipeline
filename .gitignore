@@ -13,6 +13,14 @@
 *.fasta.pac
 *.fasta.sa
 log*
+/ADK/
+/FUMC/
+/GYRB/
+/ICD/
+/MDH/
+/PURA/
+/RECA/
+
 
 #contents of /analysis/database_report
 /analysis/database_report/*.dist_distr
