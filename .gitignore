@@ -13,13 +13,13 @@
 *.fasta.pac
 *.fasta.sa
 log*
-/ADK/
-/FUMC/
-/GYRB/
-/ICD/
-/MDH/
-/PURA/
-/RECA/
+/analysis/ADK/
+/analysis/FUMC/
+/analysis/GYRB/
+/analysis/ICD/
+/analysis/MDH/
+/analysis/PURA/
+/analysis/RECA/
 
 
 #contents of /analysis/database_report
