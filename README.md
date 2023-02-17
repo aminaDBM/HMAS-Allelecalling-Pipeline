@@ -16,6 +16,7 @@ From source:
 * Centroid_Reference Generation 
 
       git clone https://github.com/aminaDBM/Centroid_Reference.git
+      cd Centroid_Reference
 
 Creating a conda environment using `.yml` file
 
@@ -25,8 +26,7 @@ Creating a conda environment using `.yml` file
       
 * Activate the new environment: 
       
-      conda activate allelecalling
-      cd allelecalling     
+      conda activate allelecalling     
       
       
 ## Preparations
