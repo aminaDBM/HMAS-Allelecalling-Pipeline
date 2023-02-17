@@ -26,10 +26,7 @@ Creating a conda environment using `.yml` file
 * Activate the new environment: 
       
       conda activate allelecalling
-      
-* Verify that the new environment was installed correctly:
-      
-      conda env list      
+      cd allelecalling     
       
       
 ## Preparations
