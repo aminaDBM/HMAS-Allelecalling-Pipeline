@@ -13,14 +13,14 @@
 
 
 #Path to '*_extractedAmplicons.fasta' (Input data files)
-echo "Enter path to input data: "
+echo "Path to input data: "
 read path
 
 #Path to Databases
-echo "Set path to database for first BLAST: "
+echo "Path and name of database for first BLAST: "
 read BLAST1_DB
 
-echo "Set path to Centroid Reference Database for second BLAST:  "
+echo "Path aand name of Centroid Reference Database for second BLAST:  "
 read BLAST2_DB
 
 
