@@ -3,8 +3,7 @@
 ### Preparation
 Allele calling pipeline requires the following pre-requisites:
 
-![Screenshot (28)](https://user-images.githubusercontent.com/93733968/228154586-1fdc8194-96f1-49c6-a4d4-92626524c93d.png)
-
+![Screenshot (30)](https://user-images.githubusercontent.com/93733968/228158232-1e36dd16-1b11-450a-ba44-62388db17930.png)
 
 * **Predicted primers database**
 
@@ -20,8 +19,7 @@ Centroid reference fasta file is utilized to construct the *Centroid_Reference d
 ### Pipeline Workflow
 Allele calling pipeline consists of four integral steps defined as follows:
 
-![Screenshot (27)](https://user-images.githubusercontent.com/93733968/228119977-c15fa1ab-7025-4b26-b957-daeef87e0622.png)
-
+![Screenshot (32)](https://user-images.githubusercontent.com/93733968/228159991-b35b6d77-dac5-434d-b569-1eac641194f2.png)
 
 #### Step1:
 
