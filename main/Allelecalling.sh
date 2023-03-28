@@ -6,8 +6,8 @@
 #Description: This section of the script takes in path as input and stores them as variables:
 
 #1. $path:  Path to input data files
-#2. $BLAST1_DB: Path to the database used to run first BLAST for preliminary sorting of input sequences as "Known Alleles" and "Unknown Alleles"
-#3. $BLAST2_DB: Path to the Centroid reference database for running second BLAST to sort "Unknown Alleles" into "Novel Alleles" and "Alleles Not Found"
+#2. $BLAST1_DB: Path and title to the database used to run first BLAST for preliminary sorting of input sequences as "Known Alleles" and "Unknown Alleles"
+#3. $BLAST2_DB: Path and title to the Centroid reference database for running second BLAST to sort "Unknown Alleles" into "Novel Alleles" and "Alleles Not Found"
 
 #######################################
 
