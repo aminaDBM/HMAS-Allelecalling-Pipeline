@@ -89,7 +89,7 @@ read BLAST2_DB
 
 #1. Run BLAST on input "fasta" files. (INPUT: fasta files, InsilicoPrimers database) (OUTPUT: tsv files)
 
-ls $path/*_extractedAmplicons.fasta | parallel -a - blastn -query {} -db $BLAST1_DB/sal19_extractedAmplicon  -perc_identity 100 -outfmt \"6 qseqid sseqid pident qcovs qlen slen length \" -out {.}.tsv
+ls $path/*_extractedAmplicons.fasta | parallel -a - blastn -query {} -db $BLAST1_DB/$BLAST1title  -perc_identity 100 -outfmt \"6 qseqid sseqid pident qcovs qlen slen length \" -out {.}.tsv
 
 
 
@@ -115,7 +115,7 @@ mv $path/*unknown_Alleles.fasta  $Unknown_AllelesInput
 
 #3. Run BLAST on "Unknown Alleles" fasta files (INPUT: UnknownAlleles fasta files, Centroid Reference database) (OUTPUT: UnknownAlleles.tsv files)
 
-ls $Unknown_AllelesInput/*.unknown_Alleles.fasta | parallel -a - blastn -query {} -db $BLAST2_DB/sal19.Centroid_RefDB -outfmt \"6 qseqid sseqid pident qcovs gaps btop qlen slen length \" -out {.}.tsv
+ls $Unknown_AllelesInput/*.unknown_Alleles.fasta | parallel -a - blastn -query {} -db $BLAST2_DB/$BLAST2title -outfmt \"6 qseqid sseqid pident qcovs gaps btop qlen slen length \" -out {.}.tsv
 
 
 #4. Run Rscript "Unknown.alleles-pipelinepart2.R" to apply filters on second BLAST results and identify "Novel Alleles". (INPUT: UnknownAlleles fasta files, UnknownAlleles.tsv files) (OUTPUT: NovelAlleles.fasta, NovelAlleleStatistics.csv, NovelAlleles.consolidatedStats.csv, NotfoundAlleles.fasta) 
