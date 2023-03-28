@@ -64,9 +64,7 @@ read BLAST2_DB
 ls $path/*_extractedAmplicons.fasta | parallel -a - blastn -query {} -db $BLAST1_DB/sal19_extractedAmplicon  -perc_identity 100 -outfmt \"6 qseqid sseqid pident qcovs qlen slen length \" -out {.}.tsv
 
 
-
 #2. Run Rscript "Known.alleles-pipelinepart1.R" to apply filters on the first BLAST results and identify "Known Alleles". (INPUT: fasta files, tsv files) (OUTPUT: KnownAlleles.fasta, KnownAlleleStatistics.csv, KnownAlleles.consolidatedStats.csv, UnknownAlleles.fasta)
-
 export Path_to_Input=$path
 echo -e 'source("Known.alleles-pipelinepart1.R")  \n q()' | R --no-save --slave
 
@@ -76,7 +74,6 @@ OutputDir="$path/KnownAlleles_Output"
 mkdir -p  $OutputDir
 mv $path/*.known_Alleles.fasta $path/*-KnownAlleleStatistics.csv $path/KnownAlleles.consolidatedStats.csv $OutputDir
 
-
 #Creating directory for Unknown Alleles.fasta files (subject to further processing)
 Unknown_AllelesInput="$path/UnknownAlleles_Data"
 #create output directory
@@ -84,14 +81,11 @@ mkdir -p  $Unknown_AllelesInput
 mv $path/*unknown_Alleles.fasta  $Unknown_AllelesInput
 
 
-
 #3. Run BLAST on "Unknown Alleles" fasta files (INPUT: UnknownAlleles fasta files, Centroid Reference database) (OUTPUT: UnknownAlleles.tsv files)
-
 ls $Unknown_AllelesInput/*.unknown_Alleles.fasta | parallel -a - blastn -query {} -db $BLAST2_DB/sal19.Centroid_RefDB -outfmt \"6 qseqid sseqid pident qcovs gaps btop qlen slen length \" -out {.}.tsv
 
 
 #4. Run Rscript "Novel.alleles-pipelinepart2.R" to apply filters on second BLAST results and identify "Novel Alleles". (INPUT: UnknownAlleles fasta files, UnknownAlleles.tsv files) (OUTPUT: NovelAlleles.fasta, NovelAlleleStatistics.csv, NovelAlleles.consolidatedStats.csv, NotfoundAlleles.fasta) 
-
 export Path_to_Input=$Unknown_AllelesInput
 echo -e 'source("Unknown.alleles-pipelinepart2.R")  \n q()' | R --no-save --slave
 
