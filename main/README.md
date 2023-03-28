@@ -32,5 +32,5 @@ Run Rscript "Novel.alleles-pipelinepart2.R" to apply filters on second BLAST res
 
 The pipeline comprises of Rscripts and a bash script kept in the same path. The bash script requires the user to specigy paths to input data, Insilico primers database and centroid reference database.
 
-  bash Allelecalling.sh
+      bash Allelecalling.sh
   
