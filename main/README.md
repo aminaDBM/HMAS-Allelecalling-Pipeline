@@ -30,9 +30,10 @@ Run Rscript "Novel.alleles-pipelinepart2.R" to apply filters on second BLAST res
 * INPUT: UnknownAlleles fasta files, UnknownAlleles.tsv files
 * OUTPUT: NovelAlleles.fasta, NovelAlleleStatistics.csv, NovelAlleles.consolidatedStats.csv, NotfoundAlleles.fasta
 
-### Running the pipeline
+### Execution
 
-The pipeline comprises of Rscripts and a bash script kept in the same path. The bash script requires the user to specigy paths to input data, Insilico primers database and centroid reference database.
+The pipeline comprises of two R scripts and a bash script kept in the same path. The bash script requires the user to specify paths to input data, Insilico primers database and centroid reference database. 
+The pipeline can be initiated using the following command:
 
       bash Allelecalling.sh
   
