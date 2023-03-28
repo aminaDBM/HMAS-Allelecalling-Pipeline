@@ -1,5 +1,8 @@
 
 #!/usr/bin/env Rscript
+args=(commandArgs(TRUE))
+
+path<-Sys.getenv("Path_to_Input")
 
 
 library(conflicted)
@@ -11,22 +14,25 @@ conflicts_prefer(dplyr::filter)
 conflicts_prefer(dplyr::count)
 conflicts_prefer(dplyr::lag)
 
-#setwd("Z:\\266Pacbio.IlluminaData\\try\\")
+setwd(path)
 
-tsv_files <- list.files(pattern='*.tsv')
-uniqseq_files <- list.files(pattern='*.fasta')
+#creating lists of input files 
+tsv_files <- list.files(pattern='_extractedAmplicons.tsv')
+uniqseq_files <- list.files(pattern='_extractedAmplicons.fasta')
 
+
+#initiating list variables
 ListofKnownAlleles <- list()
 no.ofunknownAlleles <- list()
 no.ofknownAlleles <- list()
 no.ofsampleSeqs <- list()
 
 
-
+print(tsv_files)
 for(i in 1:length(tsv_files)) {                                     # Head of for-loop
   
   prefix <- str_remove(tsv_files, pattern = ".tsv")
-  
+  print(tsv_files[i])
   #BLAST result with pident=100
   blastoutput1 <- read.delim(file = tsv_files[i],
                              header = FALSE,

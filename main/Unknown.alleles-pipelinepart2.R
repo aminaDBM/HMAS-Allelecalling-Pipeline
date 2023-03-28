@@ -1,6 +1,11 @@
 
 #!/usr/bin/env Rscript
 
+args=(commandArgs(TRUE))
+
+path<-Sys.getenv("Path_to_Input")
+
+
 library(conflicted)
 library(vegan)
 library(tidyverse)
@@ -12,7 +17,7 @@ library(stringr)
 library(openxlsx)
 library("seqinr")
 
-#setwd("Z:\\266Pacbio.IlluminaData\\data\\unknown_alleles\\analysis\\")
+setwd(path)
 
 
 #creating lists of input files 
@@ -63,7 +68,7 @@ for(i in 1:length(tsv_files)) {
   novel_alleles <- novel_alleles %>% filter(no.ofgaps <= 10) #checking no.of gaps <=10
   
   #writing dataframe to csv file and appending with each run
-  write.csv(novel_alleles, file = paste0(prefix[i],".novelAlleleStatistics.csv"), row.names=FALSE)
+  write.csv(novel_alleles, file = paste0(prefix[i],".NovelAlleleStatistics.csv"), row.names=FALSE)
 
   ############################################################
   
@@ -86,10 +91,10 @@ for(i in 1:length(tsv_files)) {
   no.ofAllelesNotfound[[i]] <- length(notfound_Alleles)
   
   #writing fasta file for novel_alleles.fasta and alleles NotFound
-  write.fasta(sequences = novel_Alleles,names=names(novel_Alleles),file.out = paste0(prefix[i],".novel_Alleles.fasta"))
+  write.fasta(sequences = novel_Alleles,names=names(novel_Alleles),file.out = paste0(prefix[i],".Novel_Alleles.fasta"))
   
   if (length(notfound_Alleles) != 0){
-    write.fasta(sequences=notfound_Alleles,names=names(notfound_Alleles),file.out = paste0(prefix[i],".notfound_Alleles.fasta"))
+    write.fasta(sequences=notfound_Alleles,names=names(notfound_Alleles),file.out = paste0(prefix[i],".Notfound_Alleles.fasta"))
     }
   
   
@@ -103,4 +108,4 @@ for(i in 1:length(tsv_files)) {
 }                                    
 
 df_to_csv <- data.frame(lapply(OutputStats, as.character), stringsAsFactors=FALSE)  
-write.csv(df_to_csv, file = "UnknownAlleles.consolidatedStats.csv", row.names=FALSE)
+write.csv(df_to_csv, file = "NovelAlleles.consolidatedStats.csv", row.names=FALSE)
