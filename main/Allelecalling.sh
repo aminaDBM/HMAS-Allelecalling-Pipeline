@@ -51,7 +51,7 @@ read BLAST2_DB
 
 #STEP4: 
 
-#Run Rscript "Unknown.alleles-pipelinepart2.R" to apply filters on second BLAST results and identify "Novel Alleles".
+#Run Rscript "Novel.alleles-pipelinepart2.R" to apply filters on second BLAST results and identify "Novel Alleles".
 #INPUT: UnknownAlleles fasta files, UnknownAlleles.tsv files
 #OUTPUT: NovelAlleles.fasta, NovelAlleleStatistics.csv, NovelAlleles.consolidatedStats.csv, NotfoundAlleles.fasta
 
@@ -91,10 +91,10 @@ mv $path/*unknown_Alleles.fasta  $Unknown_AllelesInput
 ls $Unknown_AllelesInput/*.unknown_Alleles.fasta | parallel -a - blastn -query {} -db $BLAST2_DB -outfmt \"6 qseqid sseqid pident qcovs gaps btop qlen slen length \" -out {.}.tsv
 
 
-#4. Run Rscript "Unknown.alleles-pipelinepart2.R" to apply filters on second BLAST results and identify "Novel Alleles". (INPUT: UnknownAlleles fasta files, UnknownAlleles.tsv files) (OUTPUT: NovelAlleles.fasta, NovelAlleleStatistics.csv, NovelAlleles.consolidatedStats.csv, NotfoundAlleles.fasta) 
+#4. Run Rscript "Novel.alleles-pipelinepart2.R" to apply filters on second BLAST results and identify "Novel Alleles". (INPUT: UnknownAlleles fasta files, UnknownAlleles.tsv files) (OUTPUT: NovelAlleles.fasta, NovelAlleleStatistics.csv, NovelAlleles.consolidatedStats.csv, NotfoundAlleles.fasta) 
 
 export Path_to_Input=$Unknown_AllelesInput
-echo -e 'source("Unknown.alleles-pipelinepart2.R")  \n q()' | R --no-save --slave
+echo -e 'source("Novel.alleles-pipelinepart2.R")  \n q()' | R --no-save --slave
 
 #Creating directory for Novel Alleles data
 Novel_AllelesOutput="$path/NovelAlleles_Output"
