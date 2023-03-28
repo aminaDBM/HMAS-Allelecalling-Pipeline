@@ -23,7 +23,7 @@ echo "Set path to Centroid Reference Database for second BLAST:  "
 read BLAST2_DB
 
 
-								###################################################
+					###################################################
 
 
 ################ PIPELINE STEPS ###################
@@ -54,7 +54,11 @@ read BLAST2_DB
 #INPUT: UnknownAlleles fasta files, UnknownAlleles.tsv files
 #OUTPUT: NovelAlleles.fasta, NovelAlleleStatistics.csv, NovelAlleles.consolidatedStats.csv, NotfoundAlleles.fasta
 
-							     ########################################################
+
+					 ########################################################
+
+
+
 
 ############### EXECUTION COMMANDS #####################
 
