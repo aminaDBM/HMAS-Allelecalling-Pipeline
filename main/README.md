@@ -1,7 +1,9 @@
 ## HMAS-Allelecalling Pipeline
-![Screenshot (27)](https://user-images.githubusercontent.com/93733968/228119977-c15fa1ab-7025-4b26-b957-daeef87e0622.png)
-### Pipeline Steps 
 
+![Screenshot (27)](https://user-images.githubusercontent.com/93733968/228119977-c15fa1ab-7025-4b26-b957-daeef87e0622.png)
+
+
+### Pipeline Workflow
 Allelecalling pipeline consists of four integral steps defined as follows:
 
 #### Step1:
