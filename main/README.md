@@ -1,7 +1,7 @@
 ## HMAS-Allelecalling Pipeline
 
 ### Preparation
-Allelecalling pipeline requires the following pre-requisites:
+Allele calling pipeline requires the following pre-requisites:
 
 ![Screenshot (28)](https://user-images.githubusercontent.com/93733968/228154586-1fdc8194-96f1-49c6-a4d4-92626524c93d.png)
 
@@ -18,7 +18,7 @@ Centroid reference fasta file is utilized to construct the *Centroid_Reference d
 
 
 ### Pipeline Workflow
-Allelecalling pipeline consists of four integral steps defined as follows:
+Allele calling pipeline consists of four integral steps defined as follows:
 
 ![Screenshot (27)](https://user-images.githubusercontent.com/93733968/228119977-c15fa1ab-7025-4b26-b957-daeef87e0622.png)
 
