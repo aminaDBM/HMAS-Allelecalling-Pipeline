@@ -1,6 +1,5 @@
 ## HMAS-Allelecalling Pipeline
-![Screenshot (26)](https://user-images.githubusercontent.com/93733968/228119258-6d765bd0-3294-4b54-859e-b51e38083eef.png)
-
+![Screenshot (27)](https://user-images.githubusercontent.com/93733968/228119977-c15fa1ab-7025-4b26-b957-daeef87e0622.png)
 ### Pipeline Steps 
 
 Allelecalling pipeline consists of four integral steps defined as follows:
@@ -25,7 +24,7 @@ Run BLAST on "Unknown Alleles" fasta files
 
 #### Step4:
 
-Run Rscript "Unknown.alleles-pipelinepart2.R" to apply filters on second BLAST results and identify "Novel Alleles".
+Run Rscript "Novel.alleles-pipelinepart2.R" to apply filters on second BLAST results and identify "Novel Alleles".
 * INPUT: UnknownAlleles fasta files, UnknownAlleles.tsv files
 * OUTPUT: NovelAlleles.fasta, NovelAlleleStatistics.csv, NovelAlleles.consolidatedStats.csv, NotfoundAlleles.fasta
 
