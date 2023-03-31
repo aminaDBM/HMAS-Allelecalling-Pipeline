@@ -1,5 +1,9 @@
 ## HMAS-Allelecalling Pipeline
 
+* [Introduction](#introduction)
+* [Preparation](#preparation)
+* [Execution](#execution)
+
 ### Introduction
 HMAS-Allelecalling pipeline is designed to identify alleles in metagenomics samples using highly-multiplexed amplicon sequencing data. This pipeline does reference based BLAST search for allele calling. It acts as a denoising step for being able to identify different variants of Salmonella with higher accuracy in the downstream analysis.
 
