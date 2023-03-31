@@ -1,21 +1,17 @@
 #!/bin/bash
 
-while getopts i:1:2: flag
+######################INPUTS#################
+
+while getopts i:f:s: flag
 do
     case "${flag}" in
         i) path=${OPTARG};;
-        1) BLAST1_DB=${OPTARG};;
-        2) BLAST2_DB=${OPTARG};;
+        f) BLAST1_DB=${OPTARG};;
+        s) BLAST2_DB=${OPTARG};;
     esac
 done
 
-
-echo $path
-echo $BLAST1_DB
-echo $BLAST2_DB
-
-
-############  INPUTS  ################
+#USAGE: bash Allelecalling.sh -i /path/to/input/data -f /name/and/path/to/first/BLAST/database/BLAST1_DB -s /name/and/path/to/second/BLAST/database/BLAST2_DB 
 
 #Description: This section of the script takes in path as input and stores them as variables:
 
@@ -23,24 +19,10 @@ echo $BLAST2_DB
 #2. $BLAST1_DB: Path and title to the database used to run first BLAST for preliminary sorting of input sequences as "Known Alleles" and "Unknown Alleles"
 #3. $BLAST2_DB: Path and title to the Centroid reference database for running second BLAST to sort "Unknown Alleles" into "Novel Alleles" and "Alleles Not Found"
 
-#######################################
-
-#Path to '*_extractedAmplicons.fasta' (Input data files)
-#echo "Path to input data: "
-#read path
-
-#Path to Databases
-#echo "Path and name of database for first BLAST: "
-#read BLAST1_DB
-
-#echo "Path aand name of Centroid Reference Database for second BLAST:  "
-#read BLAST2_DB
 
 
-								###################################################
 
-
-################ PIPELINE STEPS ###################
+################# PIPELINE STEPS ###################
 
 #Description: This section contains FOUR execution commands for the Allelecalling pipeline. The four processes can be defined as follows:
 
