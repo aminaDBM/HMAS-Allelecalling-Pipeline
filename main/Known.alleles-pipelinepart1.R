@@ -1,9 +1,10 @@
 
 #!/usr/bin/env Rscript
-#args=(commandArgs(TRUE))
+args=(commandArgs(TRUE))
 
-#path<-Sys.getenv("Path_to_Input")
+path<-Sys.getenv("Path_to_Input")
 
+setwd(path)
 
 library(conflicted)
 library('seqinr')
@@ -14,7 +15,7 @@ conflicts_prefer(dplyr::filter)
 conflicts_prefer(dplyr::count)
 conflicts_prefer(dplyr::lag)
 
-setwd(getwd())
+
 
 #creating lists of input files 
 tsv_files <- list.files(pattern='_extractedAmplicons.tsv')
