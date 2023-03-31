@@ -39,7 +39,7 @@ The pipeline can be initiated using the following command:
 
 ### Updating Centroid Reference Database
 
-* The centroid reference databse can be updated by adding the novel alleles sequences to the fasta file for centroid reference. The update file can be processed through the steps mentioned [here](#database-setup)
+* The centroid reference database can be updated by adding the novel alleles sequences to the fasta file for centroid reference. The updated file can be processed through the steps mentioned [here]([#database-setup](https://github.com/aminaDBM/HMAS-Allelecalling-Pipeline/tree/main/Centroid_Reference#database-setup))
       
        
 
