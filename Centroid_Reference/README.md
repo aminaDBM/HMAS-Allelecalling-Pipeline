@@ -51,12 +51,15 @@ Database organization requirements:
 *  The database should be placed in `data` folder.
 *  It should consist of allele sequences in
   [FASTA](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=BlastHel)
-  format saved in a file with `.fa` file extension. 
+  format saved in a file with `.fasta` file extension. 
 *  The name of each allele sequence should contain the gene name and allele
   name, separated by `-`. 
 *  Alleles of the same gene should be placed together to the folder with gene
   name.
 *  Gene and allele names should consist only of letters and numbers.
+
+      bash database_setup.sh
+      
 Example:
 You have a database (`MLST`), that includes allele sequences of 2 genes
 (`GENE1` and `GENE2`), 3 alleles per gene. Thus you have 6 sequences in your
