@@ -6,14 +6,12 @@
 ### Introduction
 HMAS-Allelecalling pipeline is designed to identify alleles in metagenomics samples using highly-multiplexed amplicon sequencing data. This pipeline does reference based BLAST search for allele calling. It acts as a denoising step for being able to identify different variants of Salmonella with higher accuracy in the downstream analysis.
 
-![Screenshot (27)](https://user-images.githubusercontent.com/93733968/228165014-f6c069b0-66eb-4478-832d-149f284869f7.png)
-
+![Screenshot (39)](https://user-images.githubusercontent.com/93733968/229218647-c54b95c6-65bc-4d5f-912a-f4f70a1defac.png)
 
 ### Pipeline Workflow
 Allele calling pipeline consists of four integral steps defined as follows:
 
-![Screenshot (32)](https://user-images.githubusercontent.com/93733968/228159991-b35b6d77-dac5-434d-b569-1eac641194f2.png)
-
+![Screenshot (40)](https://user-images.githubusercontent.com/93733968/229219275-db18fcdc-ed7f-4f93-82d6-5e1b889d221d.png)
 #### Step1:
 
 Run BLAST on input "fasta" files.
