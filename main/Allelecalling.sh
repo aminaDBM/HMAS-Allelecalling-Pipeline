@@ -1,5 +1,19 @@
 #!/bin/bash
 
+while getopts i:1:2: flag
+do
+    case "${flag}" in
+        i) path=${OPTARG};;
+        1) BLAST1_DB=${OPTARG};;
+        2) BLAST2_DB=${OPTARG};;
+    esac
+done
+
+
+echo $path
+echo $BLAST1_DB
+echo $BLAST2_DB
+
 
 ############  INPUTS  ################
 
@@ -11,17 +25,16 @@
 
 #######################################
 
-
 #Path to '*_extractedAmplicons.fasta' (Input data files)
-echo "Path to input data: "
-read path
+#echo "Path to input data: "
+#read path
 
 #Path to Databases
-echo "Path and name of database for first BLAST: "
-read BLAST1_DB
+#echo "Path and name of database for first BLAST: "
+#read BLAST1_DB
 
-echo "Path aand name of Centroid Reference Database for second BLAST:  "
-read BLAST2_DB
+#echo "Path aand name of Centroid Reference Database for second BLAST:  "
+#read BLAST2_DB
 
 
 								###################################################
@@ -123,6 +136,5 @@ cat $path/AllKnownAlleles.fasta $path/AllNovelAlleles.fasta > $path/InputforStra
 
 
 
- 
 
 
