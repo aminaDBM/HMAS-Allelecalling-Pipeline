@@ -39,7 +39,9 @@ The pipeline can be initiated using the following command:
 
 ### Updating Centroid Reference Database
 
-The centroid reference databse can be updated by adding the novel alleles sequences to the database for centroid reference. This database is processed through the *Centroid_Reference Generation* pipeline to create another `centroid_reference.fasta` file. This fasta file is then used to run the BLAST2 in Allelecalling pipeline.
+* The centroid reference databse can be updated by adding the novel alleles sequences to the fasta file for centroid reference. The update file can be processed through the steps mentioned [here](#database-setup)
+      
+       
 
 ![Screenshot (35)](https://user-images.githubusercontent.com/93733968/229220687-0d411e08-8faf-4016-8f9a-9a3ffdc74c15.png)
 
