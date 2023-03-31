@@ -34,7 +34,12 @@ Centroid reference database helps sort the *Unknown alleles* into *Novel alleles
 The pipeline comprises of two R scripts and a bash script kept in the same path. The bash script requires the user to specify paths to input data, Insilico primers database and centroid reference database. 
 The pipeline can be initiated using the following command:
 
-      bash Allelecalling.sh
+      bash Allelecalling.sh -i /path/to/input/data -f /name/and/path/to/first/BLAST/database/BLAST1_DB -s /name/and/path/to/second/BLAST/database/BLAST2_DB
+
+Flags:
+-i : path to input data
+-f : Name and path of the database for BLAST1
+-s : Name and path pf the database for BLAST2
   
 
 ### Updating Centroid Reference Database
