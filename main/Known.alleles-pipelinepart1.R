@@ -1,8 +1,8 @@
 
 #!/usr/bin/env Rscript
-args=(commandArgs(TRUE))
+#args=(commandArgs(TRUE))
 
-path<-Sys.getenv("Path_to_Input")
+#path<-Sys.getenv("Path_to_Input")
 
 
 library(conflicted)
@@ -14,7 +14,7 @@ conflicts_prefer(dplyr::filter)
 conflicts_prefer(dplyr::count)
 conflicts_prefer(dplyr::lag)
 
-setwd(path)
+setwd(getwd())
 
 #creating lists of input files 
 tsv_files <- list.files(pattern='_extractedAmplicons.tsv')
@@ -27,8 +27,6 @@ no.ofunknownAlleles <- list()
 no.ofknownAlleles <- list()
 no.ofsampleSeqs <- list()
 
-
-print(tsv_files)
 for(i in 1:length(tsv_files)) {                                     # Head of for-loop
   
   prefix <- str_remove(tsv_files, pattern = ".tsv")
