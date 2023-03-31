@@ -71,12 +71,14 @@ ls $path/*_extractedAmplicons.fasta | parallel -a - blastn -query {} -db $BLAST1
 export Path_to_Input=$path
 echo -e 'source("Known.alleles-pipelinepart1.R")  \n q()' | R --no-save --slave
 
+
 # Creating directory for Known Alleles Output data
 OutputDir="$path/KnownAlleles_Output"
 #create output directory
 mkdir -p  $OutputDir
 mv $path/*.known_Alleles.fasta $path/*-KnownAlleleStatistics.csv $path/KnownAlleles.consolidatedStats.csv $OutputDir
 
+cat $OutputDir/*.known_Alleles.fasta* > $path/AllKnownAlleles.fasta
 
 #Creating directory for Unknown Alleles.fasta files (subject to further processing)
 Unknown_AllelesInput="$path/UnknownAlleles_Data"
@@ -96,6 +98,10 @@ ls $Unknown_AllelesInput/*.unknown_Alleles.fasta | parallel -a - blastn -query {
 export Path_to_Input=$Unknown_AllelesInput
 echo -e 'source("Novel.alleles-pipelinepart2.R")  \n q()' | R --no-save --slave
 
+#awk 'FNR==1{print ">" FILENAME; next}1' *.Novel_Alleles.fasta > AllNovelAlleles.fasta
+
+
+
 #Creating directory for Novel Alleles data
 Novel_AllelesOutput="$path/NovelAlleles_Output"
 #create output directory
@@ -108,6 +114,12 @@ Notfound_AllelesOutput="$path/NotfoundAlleles_Output"
 mkdir -p  $Notfound_AllelesOutput
 mv $Unknown_AllelesInput/*.Notfound_Alleles.fasta $Notfound_AllelesOutput
 
+cat $Novel_AllelesOutput/*.Novel_Alleles.fasta* > $path/AllNovelAlleles.fasta
+
+
+#Output file for strainRecon by concatenating all known alleles and all novel alleles
+
+cat $path/AllKnownAlleles.fasta $path/AllNovelAlleles.fasta > $path/InputforStrainRecon.fasta
 
 
 
