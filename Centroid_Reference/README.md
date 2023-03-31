@@ -58,9 +58,12 @@ Database organization requirements:
   name.
 *  Gene and allele names should consist only of letters and numbers.
 
-      bash database_setup.sh
-      
-Example:
+            bash database_setup.sh
+      * **Input**: fasta file (Sequence headers: `>GeneA-Allele1`), text file for geneIDs
+      * **Output**: A database with the above mentioned specifications is generated 
+
+
+**Example:**
 You have a database (`MLST`), that includes allele sequences of 2 genes
 (`GENE1` and `GENE2`), 3 alleles per gene. Thus you have 6 sequences in your
 database in total.
