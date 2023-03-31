@@ -2,7 +2,7 @@
 
 * [Preparation](#preparation)
 * [Execution](#execution)
-* [Updating Centroid Reference Database](#updating centroid reference database)
+* [Updating Centroid Reference Database](#updating-centroid-reference-database)
 
 
 ### Preparation
